@@ -26,6 +26,15 @@ function operate(operator, a, b) {
     }
 }
 
+let display = document.querySelector('.display')
+let displayVal = ''
+function changeDisplay(val) {
+    displayVal += val;
+    display.textContent = displayVal;
+}
 
 
-
+numbers = document.querySelectorAll('.number')
+numbers.forEach(number => number.addEventListener('click', function() {
+    changeDisplay(this.textContent)
+}))
