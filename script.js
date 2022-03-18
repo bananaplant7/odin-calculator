@@ -12,7 +12,7 @@ const multiply = function (a, b) {
 
 const divide = function (a, b) {
     if (b == 0) {
-        return "no shot bucko";
+        return "no shot";
     } else {
         return +a / +b;
     }
@@ -32,7 +32,7 @@ function operate(operator, a, b) {
 
 let display = document.querySelector('.display');
 let displayVal = '';
-function changeDisplay(val) {
+function appendNumber(val) {
     displayVal += val;
     if (displayVal.length > 9) {
         display.textContent = displayVal.substring(0, 9);
@@ -53,7 +53,7 @@ clear.addEventListener('click', function () {
 
 numbers = document.querySelectorAll('.number');
 numbers.forEach(number => number.addEventListener('click', function () {
-    changeDisplay(this.textContent);
+    appendNumber(this.textContent);
 }));
 
 let currentOperator = '';
@@ -65,13 +65,13 @@ operators.forEach(operator => operator.addEventListener('click', function () {
         update();
     }
     currentOperator = this.textContent;
-    firstNum = displayVal;
-    displayVal = '';
+    firstNum = displayVal = display.textContent; // this and line 90 fixed
+    displayVal = '';                             // display problems after =
 }));
 
 function update() {
     secondNum = displayVal;
-    displayVal = firstNum = 
+    displayVal = firstNum =
         operate(currentOperator, firstNum, secondNum).toString();
     if (displayVal.length > 9) {
         display.textContent = displayVal.substring(0, 9);
@@ -87,6 +87,7 @@ equals.addEventListener('click', function () {
         void (0);
     } else {
         update();
+        displayVal = ''; // fixes display value after =
     }
 
 });
