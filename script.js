@@ -11,7 +11,11 @@ const multiply = function (a, b) {
 };
 
 const divide = function (a, b) {
-    return +a / +b;
+    if (b == 0) {
+        return "no shot bucko";
+    } else {
+        return +a / +b;
+    }
 };
 
 function operate(operator, a, b) {
@@ -30,7 +34,11 @@ let display = document.querySelector('.display');
 let displayVal = '';
 function changeDisplay(val) {
     displayVal += val;
-    display.textContent = displayVal;
+    if (displayVal.length > 9) {
+        display.textContent = displayVal.substring(0, 9);
+    } else {
+        display.textContent = displayVal;
+    }
 }
 
 let clear = document.querySelector('.clear');
@@ -63,8 +71,13 @@ operators.forEach(operator => operator.addEventListener('click', function () {
 
 function update() {
     secondNum = displayVal;
-    displayVal = firstNum = operate(currentOperator, firstNum, secondNum);
-    display.textContent = displayVal;
+    displayVal = firstNum = 
+        operate(currentOperator, firstNum, secondNum).toString();
+    if (displayVal.length > 9) {
+        display.textContent = displayVal.substring(0, 9);
+    } else {
+        display.textContent = displayVal;
+    }
     firstNum = null;
     secondNum = null;
 }
@@ -77,6 +90,3 @@ equals.addEventListener('click', function () {
     }
 
 });
-
-
-
