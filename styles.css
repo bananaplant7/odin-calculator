@@ -7,15 +7,17 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
-    
+    background-color: #557B83;
 }
 
 .calculator {
-    margin-top: 200px;
+    margin-top: 20vh;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
+    background-color: #39AEA9;
+    padding: 12px;
+    border-radius: 10px;
     
 }
 
@@ -26,12 +28,14 @@ body {
     border: 1px solid black;
     border-radius: 4px;
     font-size: 78px;
+    background-color: #E5EFC1;
 }
 
 .buttons {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding: 14px;
 }
 
 button {
@@ -39,5 +43,10 @@ button {
     height: 80px;
     font-size: 40px;
     padding: 0px;
-    
+    border-radius: 10px;
+    background-color: #A2D5AB;
+}
+
+.del, .clear {
+    width: 210px;
 }

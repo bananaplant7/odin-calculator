@@ -31,6 +31,7 @@ function operate(operator, a, b) {
 }
 
 let display = document.querySelector('.display');
+display.textContent = 0;
 let displayVal = '';
 function appendNumber(val) {
     displayVal += val;
@@ -90,4 +91,26 @@ equals.addEventListener('click', function () {
         displayVal = ''; // fixes display value after =
     }
 
+});
+
+del = document.querySelector('.del');
+del.addEventListener('click', function () {
+    displayVal = display.textContent;
+    displayVal = displayVal.slice(0, -1);
+    if (displayVal == '') {
+        display.textContent = 0;
+    } else {
+        display.textContent = displayVal;
+    }
+});
+
+dec = document.querySelector('.decimal');
+dec.addEventListener('click', function () {
+    displayVal = display.textContent;
+    if (displayVal.includes('.')) {
+        return;
+    } else {
+        displayVal = displayVal + '.';
+        display.textContent = displayVal;
+    }
 });
