@@ -1,5 +1,7 @@
 # odin-calculator
 
+live demo: https://bananaplant7.github.io/odin-calculator/
+
 - flexbox
 - general styling (font size, color, margins, etc)
 
